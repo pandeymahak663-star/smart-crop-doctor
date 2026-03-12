@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Fertilizer Recommendation</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f6f8;
+display:flex;
+}
+
+.sidebar{
+width:220px;
+background:#2e7d32;
+height:100vh;
+color:white;
+padding:20px;
+}
+
+.sidebar h2{
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+margin:12px 0;
+font-size:16px;
+}
+
+.sidebar a:hover{
+text-decoration:underline;
+}
+
+.main{
+flex:1;
+padding:40px;
+}
+
+.title{
+font-size:30px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+max-width:500px;
+}
+
+select,input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:10px;
+padding:12px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1b5e20;
+}
+
+.result-card{
+background:white;
+margin-top:30px;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 25px rgba(0,0,0,0.2);
+max-width:500px;
+}
+
+.result-title{
+font-size:24px;
+color:#2e7d32;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>🌱 Smart Crop Doctor</h2>
+
+<a href="/dashboard">Dashboard</a>
+<a href="/detect">Disease Detection</a>
+<a href="/weather">Weather</a>
+<a href="/market">Market</a>
+<a href="/fertilizer">Fertilizer</a>
+
+</div>
+
+
+<div class="main">
+
+<div class="title">Fertilizer Recommendation</div>
+
+<div class="card">
+
+<label>Soil Type</label>
+
+<select id="soil">
+
+<option>Sandy Soil</option>
+<option>Clay Soil</option>
+<option>Loamy Soil</option>
+
+</select>
+
+
+<label>Temperature (°C)</label>
+
+<input type="number" id="temperature" placeholder="Enter temperature">
+
+
+<label>Rainfall (mm)</label>
+
+<input type="number" id="rainfall" placeholder="Enter rainfall">
+
+
+<button onclick="getRecommendation()">Get Recommendation</button>
+
+</div>
+
+
+<div id="result"></div>
+
+</div>
+
+
+<script>
+
+async function getRecommendation(){
+
+const soil=document.getElementById("soil").value
+const temp=document.getElementById("temperature").value
+const rain=document.getElementById("rainfall").value
+
+const response=await fetch("/fertilizer-recommend",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+soil:soil,
+temperature:temp,
+rainfall:rain
+
+})
+
+})
+
+const data=await response.json()
+
+document.getElementById("result").innerHTML=`
+
+<div class="result-card">
+
+<div class="result-title">Recommended Fertilizer</div>
+
+<p><b>${data.fertilizer}</b></p>
+
+<h4>Farmer Advice</h4>
+
+<p>${data.advice}</p>
+
+</div>
+
+`
+
+}
+
+</script>
+
+</body>
+
+</html>

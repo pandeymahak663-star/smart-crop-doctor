@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Help Center</title>
+
+<style>
+
+body{
+font-family:Segoe UI;
+margin:0;
+background:#f4f6f8;
+}
+
+.header{
+background:#2e7d32;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+.header h1{
+margin:0;
+font-size:36px;
+}
+
+.search-box{
+margin-top:20px;
+}
+
+.search-box input{
+padding:12px;
+width:350px;
+border:none;
+border-radius:6px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+margin-bottom:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+margin-bottom:15px;
+}
+
+.faq-question{
+cursor:pointer;
+font-weight:bold;
+}
+
+.faq-answer{
+display:none;
+margin-top:10px;
+color:#555;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.contact-box{
+background:white;
+padding:25px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.contact-box h3{
+color:#2e7d32;
+}
+
+button{
+background:#2e7d32;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1b5e20;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>Help Center</h1>
+
+<p>Find answers or contact support</p>
+
+<div class="search-box">
+<input placeholder="Search help articles...">
+</div>
+
+</div>
+
+
+<div class="container">
+
+
+<div class="section">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="card">
+<div class="faq-question" onclick="toggle(this)">
+How to detect crop disease?
+</div>
+
+<div class="faq-answer">
+Go to Disease Detection page and upload crop leaf image.
+</div>
+</div>
+
+
+<div class="card">
+<div class="faq-question" onclick="toggle(this)">
+How to check market prices?
+</div>
+
+<div class="faq-answer">
+Enter crop name in Market Prices page to view latest prices.
+</div>
+</div>
+
+
+<div class="card">
+<div class="faq-question" onclick="toggle(this)">
+How to get fertilizer recommendation?
+</div>
+
+<div class="faq-answer">
+Enter soil type, rainfall and temperature in fertilizer page.
+</div>
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Contact Support</h2>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+<h3>Email Support</h3>
+<p>support@smartcropdoctor.com</p>
+<button>Send Email</button>
+</div>
+
+<div class="contact-box">
+<h3>Phone Support</h3>
+<p>+91 9876543210</p>
+<button>Call Now</button>
+</div>
+
+<div class="contact-box">
+<h3>Farmer Helpline</h3>
+<p>1800-180-1551</p>
+<button>Contact</button>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+function toggle(element){
+
+let answer = element.nextElementSibling
+
+if(answer.style.display=="block")
+answer.style.display="none"
+else
+answer.style.display="block"
+
+}
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Crop Recommendation</title>
+
+<style>
+
+body{
+font-family:Segoe UI;
+background:#f4f6f9;
+margin:0;
+}
+
+.sidebar{
+width:220px;
+height:100vh;
+background:white;
+position:fixed;
+padding:20px;
+box-shadow:2px 0 10px rgba(0,0,0,0.1);
+}
+
+.main{
+margin-left:240px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+width:400px;
+}
+
+button{
+background:#2e7d32;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+margin-top:15px;
+cursor:pointer;
+}
+
+.result{
+margin-top:20px;
+font-weight:bold;
+color:#2e7d32;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>🌱 Smart Crop Doctor</h2>
+
+<a href="/dashboard">Dashboard</a>
+<a href="/detect">Disease Detection</a>
+<a href="/weather">Weather</a>
+<a href="/market">Market</a>
+
+</div>
+
+<div class="main">
+
+<h1>Crop Recommendation</h1>
+
+<div class="card">
+
+<select id="soil">
+<option value="sandy">Sandy Soil</option>
+<option value="clay">Clay Soil</option>
+<option value="loamy">Loamy Soil</option>
+</select>
+
+<br><br>
+
+<input type="number" id="temp" placeholder="Temperature">
+
+<br><br>
+
+<input type="number" id="rain" placeholder="Rainfall">
+
+<br>
+
+<button onclick="recommend()">Get Recommendation</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function recommend(){
+
+let soil=document.getElementById("soil").value
+let temp=document.getElementById("temp").value
+
+let crop=""
+
+if(soil=="loamy" && temp>20){
+crop="Rice 🌾"
+}
+
+else if(soil=="sandy"){
+crop="Groundnut"
+}
+
+else{
+crop="Wheat"
+}
+
+document.getElementById("result").innerHTML="Recommended Crop: "+crop
+
+}
+
+</script>
+
+</body>
+</html>

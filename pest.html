@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Pest Control Guide</title>
+
+<style>
+
+body{
+font-family:Segoe UI;
+background:#f4f6f8;
+margin:0;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.title{
+font-size:34px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.search{
+margin-bottom:30px;
+}
+
+.search input{
+padding:10px;
+width:300px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+.card h3{
+color:#2e7d32;
+margin-bottom:10px;
+}
+
+.card p{
+margin:5px 0;
+color:#555;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="title">🐛 Pest Control Guide</div>
+
+<div class="search">
+<input id="search" onkeyup="searchPest()" placeholder="Search pest...">
+</div>
+
+<div id="pestList">
+
+<div class="card"><h3>Aphids</h3>
+<p><b>Damage:</b> Suck plant sap and weaken crops.</p>
+<p><b>Organic:</b> Neem oil spray.</p>
+<p><b>Chemical:</b> Imidacloprid spray.</p>
+<p><b>Prevention:</b> Remove infected plants.</p></div>
+
+<div class="card"><h3>Whiteflies</h3>
+<p><b>Damage:</b> Spread plant viruses.</p>
+<p><b>Organic:</b> Yellow sticky traps.</p>
+<p><b>Chemical:</b> Pyrethrin spray.</p>
+<p><b>Prevention:</b> Maintain crop spacing.</p></div>
+
+<div class="card"><h3>Cutworms</h3>
+<p><b>Damage:</b> Cut seedlings at soil level.</p>
+<p><b>Organic:</b> Bacillus thuringiensis.</p>
+<p><b>Chemical:</b> Chlorpyrifos.</p>
+<p><b>Prevention:</b> Clean soil.</p></div>
+
+<div class="card"><h3>Spider Mites</h3>
+<p><b>Damage:</b> Leaves turn yellow.</p>
+<p><b>Organic:</b> Neem oil.</p>
+<p><b>Chemical:</b> Abamectin.</p>
+<p><b>Prevention:</b> Maintain humidity.</p></div>
+
+<div class="card"><h3>Thrips</h3>
+<p><b>Damage:</b> Silver streaks on leaves.</p>
+<p><b>Organic:</b> Blue sticky traps.</p>
+<p><b>Chemical:</b> Spinosad spray.</p>
+<p><b>Prevention:</b> Remove infected plants.</p></div>
+
+<div class="card"><h3>Armyworms</h3>
+<p><b>Damage:</b> Eat leaves rapidly.</p>
+<p><b>Organic:</b> Bacillus thuringiensis.</p>
+<p><b>Chemical:</b> Chlorantraniliprole.</p>
+<p><b>Prevention:</b> Monitor crops.</p></div>
+
+<div class="card"><h3>Leaf Miners</h3>
+<p><b>Damage:</b> Tunnels in leaves.</p>
+<p><b>Organic:</b> Neem oil.</p>
+<p><b>Chemical:</b> Spinosad.</p>
+<p><b>Prevention:</b> Remove infected leaves.</p></div>
+
+<div class="card"><h3>Mealybugs</h3>
+<p><b>Damage:</b> White cotton insects sucking sap.</p>
+<p><b>Organic:</b> Soap water spray.</p>
+<p><b>Chemical:</b> Imidacloprid.</p>
+<p><b>Prevention:</b> Clean plants.</p></div>
+
+<div class="card"><h3>Fruit Borers</h3>
+<p><b>Damage:</b> Bore holes in fruits.</p>
+<p><b>Organic:</b> Pheromone traps.</p>
+<p><b>Chemical:</b> Emamectin Benzoate.</p>
+<p><b>Prevention:</b> Remove infected fruits.</p></div>
+
+<div class="card"><h3>Stem Borers</h3>
+<p><b>Damage:</b> Bore stems.</p>
+<p><b>Organic:</b> Neem spray.</p>
+<p><b>Chemical:</b> Carbofuran.</p>
+<p><b>Prevention:</b> Field sanitation.</p></div>
+
+<div class="card"><h3>Grasshoppers</h3>
+<p><b>Damage:</b> Eat leaves.</p>
+<p><b>Organic:</b> Garlic spray.</p>
+<p><b>Chemical:</b> Malathion.</p>
+<p><b>Prevention:</b> Remove weeds.</p></div>
+
+<div class="card"><h3>Locusts</h3>
+<p><b>Damage:</b> Destroy crops in swarms.</p>
+<p><b>Organic:</b> Neem spray.</p>
+<p><b>Chemical:</b> Organophosphate insecticide.</p>
+<p><b>Prevention:</b> Early monitoring.</p></div>
+
+<div class="card"><h3>Termites</h3>
+<p><b>Damage:</b> Attack plant roots.</p>
+<p><b>Organic:</b> Neem cake.</p>
+<p><b>Chemical:</b> Chlorpyrifos.</p>
+<p><b>Prevention:</b> Maintain soil moisture.</p></div>
+
+<div class="card"><h3>Leafhoppers</h3>
+<p><b>Damage:</b> Leaf curling.</p>
+<p><b>Organic:</b> Neem spray.</p>
+<p><b>Chemical:</b> Imidacloprid.</p>
+<p><b>Prevention:</b> Resistant varieties.</p></div>
+
+<div class="card"><h3>Caterpillars</h3>
+<p><b>Damage:</b> Eat leaves.</p>
+<p><b>Organic:</b> Neem spray.</p>
+<p><b>Chemical:</b> Bacillus thuringiensis.</p>
+<p><b>Prevention:</b> Monitor crops.</p></div>
+
+<div class="card"><h3>Flea Beetles</h3>
+<p><b>Damage:</b> Small holes in leaves.</p>
+<p><b>Organic:</b> Neem spray.</p>
+<p><b>Chemical:</b> Carbaryl.</p>
+<p><b>Prevention:</b> Row covers.</p></div>
+
+<div class="card"><h3>Corn Earworms</h3>
+<p><b>Damage:</b> Damage maize fruits.</p>
+<p><b>Organic:</b> Neem spray.</p>
+<p><b>Chemical:</b> Spinosad.</p>
+<p><b>Prevention:</b> Crop rotation.</p></div>
+
+<div class="card"><h3>Root Maggots</h3>
+<p><b>Damage:</b> Attack plant roots.</p>
+<p><b>Organic:</b> Beneficial nematodes.</p>
+<p><b>Chemical:</b> Diazinon.</p>
+<p><b>Prevention:</b> Rotate crops.</p></div>
+
+</div>
+
+</div>
+
+<script>
+
+function searchPest(){
+
+let input=document.getElementById("search").value.toLowerCase()
+let cards=document.getElementsByClassName("card")
+
+for(let i=0;i<cards.length;i++){
+
+let text=cards[i].innerText.toLowerCase()
+
+if(text.includes(input))
+cards[i].style.display="block"
+else
+cards[i].style.display="none"
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

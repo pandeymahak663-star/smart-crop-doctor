@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Crop Doctor - Login</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background-image:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef");
+background-size:cover;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:10px;
+width:320px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2{
+margin-bottom:20px;
+color:#2e7d32;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1b5e20;
+}
+
+a{
+color:#2e7d32;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Login</h2>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p>Don't have an account? <a href="/signup">Sign Up</a></p>
+
+</div>
+
+<script>
+
+async function login(){
+
+const username=document.getElementById("username").value
+const password=document.getElementById("password").value
+
+const response=await fetch("/login",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+username:username,
+password:password
+})
+
+})
+
+const data=await response.json()
+
+alert(data.message)
+
+if(data.message==="Login successful"){
+window.location="/dashboard"
+}
+
+}
+
+</script>
+
+</body>
+</html>

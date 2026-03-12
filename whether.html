@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Weather | Smart Crop Doctor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins;
+background:#0f2027;
+background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+}
+
+.container{
+width:900px;
+margin:auto;
+margin-top:40px;
+}
+
+.search{
+margin-bottom:20px;
+}
+
+input{
+padding:10px;
+width:250px;
+border:none;
+border-radius:6px;
+}
+
+button{
+padding:10px 15px;
+background:#00c853;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+.weather-box{
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:15px;
+}
+
+.temp{
+font-size:60px;
+font-weight:500;
+}
+
+.hourly{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+overflow-x:auto;
+}
+
+.hour{
+background:rgba(255,255,255,0.1);
+padding:10px;
+border-radius:10px;
+margin-right:10px;
+min-width:80px;
+}
+
+.forecast{
+display:flex;
+justify-content:space-between;
+margin-top:25px;
+}
+
+.day{
+background:rgba(255,255,255,0.1);
+padding:15px;
+border-radius:10px;
+width:100px;
+}
+
+.details{
+margin-top:30px;
+display:flex;
+justify-content:space-around;
+}
+
+.detail{
+background:rgba(255,255,255,0.1);
+padding:20px;
+border-radius:10px;
+width:150px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌦 Smart Crop Weather</h1>
+
+<div class="search">
+
+<input id="city" placeholder="Enter city">
+
+<button onclick="getWeather()">Search</button>
+
+</div>
+
+<div class="weather-box">
+
+<div id="current">
+
+<div class="temp" id="temp">--°C</div>
+
+<div id="condition"></div>
+
+</div>
+
+<div class="hourly" id="hourly"></div>
+
+<div class="forecast" id="forecast"></div>
+
+<div class="details">
+
+<div class="detail">
+🌧 Rain
+<br>
+<span id="rain">--</span>
+</div>
+
+<div class="detail">
+💨 Wind
+<br>
+<span id="wind">--</span>
+</div>
+
+<div class="detail">
+💧 Humidity
+<br>
+<span id="humidity">--</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+async function getWeather(){
+
+let city=document.getElementById("city").value
+
+let res = await fetch(`http://127.0.0.1:8000/weather/${city}`)
+
+let data=await res.json()
+
+document.getElementById("temp").innerText=data.current.temp+"°C"
+
+document.getElementById("condition").innerText=data.current.condition
+
+document.getElementById("wind").innerText=data.current.wind+" km/h"
+
+document.getElementById("humidity").innerText=data.current.humidity+"%"
+
+document.getElementById("rain").innerText=data.current.rain+"%"
+
+let hourlyHTML=""
+
+data.hourly.forEach(h=>{
+
+hourlyHTML+=`
+<div class="hour">
+${h.time}
+<br>
+${h.temp}°C
+</div>
+`
+
+})
+
+document.getElementById("hourly").innerHTML=hourlyHTML
+
+
+let forecastHTML=""
+
+data.daily.forEach(d=>{
+
+forecastHTML+=`
+
+<div class="day">
+
+${d.day}
+<br><br>
+
+${d.temp}°C
+
+</div>
+
+`
+
+})
+
+document.getElementById("forecast").innerHTML=forecastHTML
+
+}
+
+</script>
+
+</body>
+
+</html>

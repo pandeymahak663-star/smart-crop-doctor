@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Crop Doctor</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f6f5;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:220px;
+height:100vh;
+background:#ffffff;
+position:fixed;
+padding:20px;
+box-shadow:2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar h2{
+color:#2e7d32;
+}
+
+.sidebar a{
+display:block;
+margin:12px 0;
+text-decoration:none;
+color:#333;
+font-size:15px;
+}
+
+/* Main */
+
+.main{
+margin-left:240px;
+padding:30px;
+}
+
+.title{
+font-size:24px;
+margin-bottom:20px;
+}
+
+/* Cards */
+
+.card-container{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card h3{
+margin-top:0;
+}
+
+.card p{
+color:#555;
+}
+
+.card button{
+background:#1b5e20;
+color:white;
+border:none;
+padding:8px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.card button:hover{
+background:#2e7d32;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h2>🌱 Smart Crop Doctor</h2>
+
+<a href="/dashboard">Dashboard</a>
+<a href="/detect">Disease Detection</a>
+<a href="/weather">Weather</a>
+<a href="/market">Market</a>
+<a href="/crop">Crop Recommendation</a>
+<a href="/fertilizer">Fertilizer Suggestion</a>
+<a href="/pest">Pest Control</a>
+<a href="/subsidy">Government Subsidy</a>
+<a href="/chatbot">AI Chatbot</a>
+<a href="/help">Help & Support</a>
+<a href="/about">About Project</a>
+
+</div>
+
+
+<!-- Main -->
+
+<div class="main">
+
+<div class="title">
+Here's what's happening with your crops today
+</div>
+
+
+<div class="card-container">
+
+
+<div class="card">
+<h3>🌿 New Scan</h3>
+<p>Upload leaf photo</p>
+<a href="/detect">
+<button>Open</button>
+</a>
+</div>
+
+
+<div class="card">
+<h3>☀ Weather</h3>
+<p>Check forecast</p>
+<a href="/weather">
+<button>Open</button>
+</a>
+</div>
+
+
+<div class="card">
+<h3>💰 Market</h3>
+<p>Crop prices</p>
+<a href="/market">
+<button>Open</button>
+</a>
+</div>
+
+
+<div class="card">
+<h3>🌱 Crop Recommendation</h3>
+<p>Best crop suggestion for soil</p>
+<a href="/crop">
+<button>Open</button>
+</a>
+</div>
+
+
+<div class="card">
+<h3>🧪 Fertilizer Suggestion</h3>
+<p>Find suitable fertilizer</p>
+<a href="/fertilizer">
+<button>Open</button>
+</a>
+</div>
+
+
+<div class="card">
+<h3>🐛 Pest Control</h3>
+<p>Identify pests & solution</p>
+<a href="/pest">
+<button>Open</button>
+</a>
+</div>
+
+
+<div class="card">
+<h3>🏛 Government Subsidy</h3>
+<p>Check farmer schemes</p>
+<a href="/subsidy">
+<button>Open</button>
+</a>
+</div>
+<div class="card">
+
+<h3>🤖 AI Chatbot</h3>
+
+<p>Ask farming questions</p>
+
+<a href="/chatbot">
+
+<button>Open</button>
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>🆘 Help & Support</h3>
+
+<p>Get help and contact support</p>
+
+<a href="/help">
+
+<button>Open</button>
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>ℹ️ About Project</h3>
+
+<p>Learn about Smart Crop Doctor</p>
+
+<a href="/about">
+
+<button>Open</button>
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</body>
+</html>

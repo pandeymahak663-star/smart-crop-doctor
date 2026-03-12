@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Market Prices</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f6f8;
+display:flex;
+}
+
+.sidebar{
+width:220px;
+background:#2e7d32;
+height:100vh;
+color:white;
+padding:20px;
+}
+
+.sidebar h2{
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+margin:12px 0;
+}
+
+.sidebar a:hover{
+text-decoration:underline;
+}
+
+.main{
+flex:1;
+padding:40px;
+}
+
+.title{
+font-size:30px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.search-box{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+max-width:500px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:10px;
+padding:10px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1b5e20;
+}
+
+table{
+margin-top:30px;
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:left;
+}
+
+th{
+background:#2e7d32;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>🌱 Smart Crop Doctor</h2>
+
+<a href="/dashboard">Dashboard</a>
+<a href="/detect">Disease Detection</a>
+<a href="/weather">Weather</a>
+<a href="/market">Market Prices</a>
+
+</div>
+
+<div class="main">
+
+<div class="title">Market Price Information</div>
+
+<div class="search-box">
+
+<label>Enter Crop Name</label>
+
+<input type="text" id="crop" placeholder="Example: Tomato">
+
+<button onclick="getMarket()">Check Prices</button>
+
+</div>
+
+<table id="marketTable" style="display:none">
+
+<thead>
+
+<tr>
+<th>Market</th>
+<th>State</th>
+<th>Price (₹)</th>
+</tr>
+
+</thead>
+
+<tbody id="tableBody"></tbody>
+
+</table>
+
+</div>
+
+<script>
+
+async function getMarket(){
+
+const crop=document.getElementById("crop").value
+
+const response=await fetch("/market-data/"+crop)
+
+const data=await response.json()
+
+const table=document.getElementById("marketTable")
+const body=document.getElementById("tableBody")
+
+body.innerHTML=""
+
+data.data.forEach(item=>{
+
+body.innerHTML+=`
+
+<tr>
+<td>${item.market}</td>
+<td>${item.state}</td>
+<td>${item.price}</td>
+</tr>
+
+`
+
+})
+
+table.style.display="table"
+
+}
+
+</script>
+
+</body>
+
+</html>
